@@ -113,12 +113,6 @@ export const commonStyles = {
     color: Colors.light.text,
   } as TextStyle,
 
-  profileRole: {
-    ...Fonts.regular,
-    fontSize: 14,
-    color: Colors.light.text,
-  } as TextStyle,
-
   settingsIcon: {
     marginLeft: 8,
     backgroundColor: Colors.light.card,

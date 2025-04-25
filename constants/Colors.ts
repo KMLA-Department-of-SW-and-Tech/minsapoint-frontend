@@ -1,4 +1,4 @@
-const tintColorLight = '#0a7ea4';
+const tintColorLight = '#000000';
 const tintColorDark = '#fff';
 
 export const Colors = {
@@ -11,7 +11,7 @@ export const Colors = {
     tabIconSelected: tintColorLight,
     border: '#E0E0E0',
     card: '#F8F9FA',
-    button: '#0a7ea4',
+    button: '#000000',
     buttonText: '#ffffff',
     success: '#2ECC71',
     error: '#E74C3C',
