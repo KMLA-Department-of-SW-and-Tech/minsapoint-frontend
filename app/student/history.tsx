@@ -75,14 +75,6 @@ export default function CounterScreen() {
             <Text style={commonStyles.modalContent}>
               {selectedItem?.content || ''}
             </Text>
-            <View style={commonStyles.modalButtons}>
-              <TouchableOpacity style={commonStyles.cancelButton}>
-                <Text style={{ color: '#fff' }}>기소 취하</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={commonStyles.closeButton} onPress={closeModal}>
-                <Text style={{ color: '#000' }}>닫기</Text>
-              </TouchableOpacity>
-            </View>
           </View>
         </View>
       </Modal>
