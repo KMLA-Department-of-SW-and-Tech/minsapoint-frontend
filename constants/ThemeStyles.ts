@@ -1,7 +1,6 @@
-
 import { Colors } from '../constants/Colors';
 import { Fonts } from '../constants/Fonts';
-import { ViewStyle, TextStyle } from 'react-native';
+import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
 export const commonStyles = {
   container: {
@@ -9,6 +8,39 @@ export const commonStyles = {
     backgroundColor: Colors.light.background,
     paddingHorizontal: 24,
   } as ViewStyle,
+
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  appTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  rightProfileSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  notification: {
+    position: 'absolute',
+    top: 60,
+    left: 24,
+  },
+  notificationBadge: {
+    position: 'absolute',
+    top: -6,
+    right: -6,
+    backgroundColor: 'red',
+    borderRadius: 8,
+    paddingHorizontal: 4,
+    paddingVertical: 1,
+  },
+  notificationText: {
+    color: '#fff',
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
 
   shadowBox: {
     backgroundColor: Colors.light.card,
@@ -20,10 +52,11 @@ export const commonStyles = {
   titleText: {
     ...Fonts.heading,
     color: Colors.light.text,
-    fontSize: 50,
-    textAlign: 'center' as const,
+    fontSize: 26,
+    textAlign: 'left' as const,
+    marginTop: 16,
+    marginBottom: 16,
   } as TextStyle,
-  
 
   subtitleText: {
     ...Fonts.bold,
@@ -50,9 +83,125 @@ export const commonStyles = {
     alignItems: 'center' as const,
   } as ViewStyle,
 
-
   buttonText: {
     ...Fonts.bold,
     color: Colors.light.buttonText,
   } as TextStyle,
+
+  // ✅ 프로필 관련
+  profileRow: {
+    flexDirection: 'row-reverse', // 오른쪽 정렬
+    alignItems: 'center',
+    marginBottom: 20,
+  } as ViewStyle,
+
+  profileImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginLeft: 8,
+  } as ImageStyle,
+
+  profileTextContainer: {
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+  } as ViewStyle,
+
+  profileName: {
+    ...Fonts.bold,
+    fontSize: 16,
+    color: Colors.light.text,
+  } as TextStyle,
+
+  profileRole: {
+    ...Fonts.regular,
+    fontSize: 14,
+    color: Colors.light.text,
+  } as TextStyle,
+
+  settingsIcon: {
+    marginLeft: 8,
+    backgroundColor: Colors.light.card,
+    padding: 6,
+    borderRadius: 20,
+  } as ViewStyle,
+
+  summaryBox: {
+    marginBottom: 24,
+  } as ViewStyle,
+
+  smallGrayText: {
+    ...Fonts.regular,
+    fontSize: 14,
+    color: Colors.light.tint,
+  } as TextStyle,
+
+  boldBlackText: {
+    ...Fonts.bold,
+    fontSize: 16,
+    color: Colors.light.text,
+  } as TextStyle,
+
+  menuWrapper: {
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+  } as ViewStyle,
+
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 18,
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  } as ViewStyle,
+
+  iconWithText: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  } as ViewStyle,
+
+  menuTitle: {
+    ...Fonts.bold,
+    fontSize: 16,
+    color: Colors.light.text,
+  } as TextStyle,
+
+  menuSubtitle: {
+    ...Fonts.regular,
+    fontSize: 12,
+    color: Colors.light.tint,
+  } as TextStyle,
+  scoreSection: {
+    alignItems: 'center',
+    marginTop: 100,
+  },
+  grayLabel: {
+    color: '#aaa',
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  bigScore: {
+    fontSize: 64,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  subScores: {
+    marginTop: 32,
+    gap: 16,
+  },
+  scoreItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 120,
+  },
+  label: {
+    fontSize: 18,
+    color: '#000',
+  },
+  value: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+  },
 } as const;
