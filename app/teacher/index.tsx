@@ -1,10 +1,13 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { commonStyles } from '../../constants/ThemeStyles';
 import { Colors } from '../../constants/Colors';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 export default function CounterScreen() {
+  const router = useRouter();
+
   return (
     <View style={commonStyles.container}>
       {/* Header */}
@@ -16,7 +19,6 @@ export default function CounterScreen() {
           source={{ uri: 'https://via.placeholder.com/40' }}
           style={commonStyles.profileImage}
         />
-        
         <View style={commonStyles.settingsIcon}>
           <Ionicons name="settings" size={20} color={Colors.light.text} />
         </View>
@@ -39,6 +41,7 @@ export default function CounterScreen() {
           icon={<MaterialIcons name="history" size={28} color="black" />}
           title="History"
           subtitle="기소항목 & 상점 추천 히스토리"
+          onPress={() => router.push('/teacher/history')}
         />
         <MenuItem
           icon={<Ionicons name="sunny" size={28} color="black" />}
@@ -55,9 +58,19 @@ export default function CounterScreen() {
   );
 }
 
-function MenuItem({ icon, title, subtitle }: { icon: React.ReactNode, title: string, subtitle: string }) {
+function MenuItem({
+  icon,
+  title,
+  subtitle,
+  onPress,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  onPress?: () => void;
+}) {
   return (
-    <TouchableOpacity style={commonStyles.menuItem}>
+    <TouchableOpacity style={commonStyles.menuItem} onPress={onPress}>
       <View style={commonStyles.iconWithText}>
         {icon}
         <View style={{ marginLeft: 12 }}>

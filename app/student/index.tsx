@@ -2,8 +2,10 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { commonStyles } from '../../constants/ThemeStyles';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 export default function CounterScreen() {
+  const router = useRouter();
   return (
     <View style={commonStyles.container}>
       {/* 상단 바 */}
@@ -28,7 +30,7 @@ export default function CounterScreen() {
 
       {/* 알림 아이콘 */}
       <TouchableOpacity style={commonStyles.notification}>
-        <Ionicons name="notifications-outline" size={28} color="black" />
+        <Ionicons name="notifications-outline" size={28} color="black" onPress={() => router.push('/student/alerts')} />
         <View style={commonStyles.notificationBadge}>
           <Text style={commonStyles.notificationText}>3</Text>
         </View>
@@ -49,6 +51,9 @@ export default function CounterScreen() {
             <Text style={commonStyles.value}>12</Text>
           </View>
         </View>
+        <TouchableOpacity style={commonStyles.button} onPress={() => router.push('/student/history')} >
+          <Text style={commonStyles.buttonText}>History</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

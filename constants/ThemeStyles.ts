@@ -80,12 +80,14 @@ export const commonStyles = {
     backgroundColor: Colors.light.button,
     borderRadius: 8,
     paddingVertical: 12,
+    marginTop: 30,
     alignItems: 'center' as const,
   } as ViewStyle,
 
   buttonText: {
     ...Fonts.bold,
     color: Colors.light.buttonText,
+    paddingHorizontal: 25,
   } as TextStyle,
 
   // ✅ 프로필 관련
