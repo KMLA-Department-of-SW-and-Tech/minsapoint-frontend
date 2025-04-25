@@ -198,4 +198,67 @@ export const commonStyles = {
     fontWeight: 'bold',
     color: '#000',
   },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalBox: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 20,
+    width: '80%',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  modalContent: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    gap: 10,
+  },
+  cancelButton: {
+    backgroundColor: '#333',
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 6,
+    marginRight: 8,
+  },
+  closeButton: {
+    backgroundColor: '#eee',
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 6,
+  },
+  itemCard: {
+    padding: 16,
+    backgroundColor: '#f3f3f3',
+    borderRadius: 12,
+    marginBottom: 12,
+  },
+  itemTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  itemSub: {
+    color: '#666',
+    marginTop: 4,
+  },
+
 } as const;
