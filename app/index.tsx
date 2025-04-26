@@ -14,6 +14,9 @@ export default function Index() {
       <Link href="/dept-of-j" style={styles.link} asChild>
         <Text style={styles.linkText}>Go to dept of j</Text>
       </Link>
+      <Link href="/login" style={styles.link} asChild>
+        <Text style={styles.linkText}>Go to login</Text>
+      </Link>
     </View>
   )
 }
