@@ -14,7 +14,7 @@ export default function CounterScreen() {
     <View style={commonStyles.container}>
       {/* 상단 바 */}
       <View style={commonStyles.topBar}>
-        <Text style={commonStyles.appTitle}>Counter</Text>
+        <Text style={commonStyles.appTitle}>MinsaPoint</Text>
         
        
       </View>

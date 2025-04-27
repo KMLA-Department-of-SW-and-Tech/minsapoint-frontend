@@ -10,19 +10,14 @@ export default function CounterScreen() {
     <View style={commonStyles.container}>
       {/* 상단 바 */}
       <View style={commonStyles.topBar}>
-        <Text style={commonStyles.appTitle}>Counter</Text>
+        <Text style={commonStyles.appTitle}>MinsaPoint</Text>
         <View style={commonStyles.rightProfileSection}>
           <View style={commonStyles.profileRow}>
-            <Image
-              source={{ uri: 'https://your-image-url.com/profile.jpg' }}
-              style={commonStyles.profileImage}
-            />
             <View style={{ marginLeft: 8 }}>
-              <Text style={commonStyles.profileName}>조유찬 선생님</Text>
-              
+              <Text style={commonStyles.profileName} onPress={() => router.push('/student/settings')}>조유찬 선생님</Text>
             </View>
           </View>
-          <TouchableOpacity style={commonStyles.settingsIcon}>
+          <TouchableOpacity style={commonStyles.settingsIcon} onPress={() => router.push('/student/settings')}>
             <Ionicons name="settings-outline" size={20} color="#333" />
           </TouchableOpacity>
         </View>

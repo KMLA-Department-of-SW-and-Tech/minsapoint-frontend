@@ -8,6 +8,16 @@ export const commonStyles = {
     backgroundColor: Colors.light.background,
     paddingHorizontal: 24,
   } as ViewStyle,
+  inputWrapper: {
+    borderWidth: 1,
+    borderColor: '#ccc', // 연한 회색 테두리
+    borderRadius: 8,     // 둥글게
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginBottom: 16,
+    backgroundColor: '#fff', // 흰 배경
+  },
+  
 
   topBar: {
     flexDirection: 'row',
@@ -261,6 +271,59 @@ export const commonStyles = {
   itemSub: {
     color: '#666',
     marginTop: 4,
+  },
+  infoBox: {
+    backgroundColor: '#f2f2f2',
+    padding: 20,
+    borderRadius: 12,
+    gap: 12,
+  },
+  infoTitle: {
+    fontSize: 14,
+    color: '#555',
+    fontWeight: 'bold',
+  },
+  infoText: {
+    fontSize: 16,
+    color: '#000',
+    marginBottom: 8,
+  },
+  logoutButton: {
+    backgroundColor: '#FF3B30',
+    paddingVertical: 14,
+    borderRadius: 10,
+  },
+  logoutButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  formBox: {
+    backgroundColor: '#f9f9f9',
+    padding: 20,
+    borderRadius: 12,
+    gap: 12,
+  },
+  pickerWrapper: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    overflow: 'hidden',
+    marginBottom: 12,
   },
 
 } as const;
