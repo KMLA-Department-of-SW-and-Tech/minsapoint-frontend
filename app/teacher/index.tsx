@@ -15,15 +15,11 @@ export default function CounterScreen() {
 
       {/* Profile */}
       <View style={commonStyles.profileRow}>
-        <Image
-          source={{ uri: 'https://via.placeholder.com/40' }}
-          style={commonStyles.profileImage}
-        />
         <View style={commonStyles.settingsIcon}>
           <Ionicons name="settings" size={20} color={Colors.light.text} />
         </View>
         <View style={{ marginLeft: 8 }}>
-          <Text style={commonStyles.profileName}>왕두균 선생님</Text>
+          <Text style={commonStyles.profileName} onPress={() => router.push('/student/settings')}>왕두균 선생님</Text>
         </View>
       </View>
 
@@ -47,11 +43,13 @@ export default function CounterScreen() {
           icon={<Ionicons name="sunny" size={28} color="black" />}
           title="Reward Points"
           subtitle="상점 추천"
+          onPress={() => router.push('/teacher/reward-points')}
         />
         <MenuItem
           icon={<Ionicons name="rainy" size={28} color="black" />}
           title="Penalty Points"
           subtitle="기소"
+          onPress={() => router.push('/teacher/penalty-points')}
         />
       </View>
     </View>
