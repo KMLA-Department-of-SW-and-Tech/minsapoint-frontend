@@ -13,11 +13,16 @@ import {
 import { commonStyles } from '../constants/ThemeStyles';
 
 import { useAuth } from "@/contexts/authContext";
+import { signUserInWithGoogle } from "@/firebase/auth"
 
 const LoginScreen = () => {
 
   const { currentUser, userLoggedIn, accessToken } = useAuth();
   console.log(currentUser, userLoggedIn, accessToken);
+
+  const onLoginButtonPressed = async () => {
+    await signUserInWithGoogle();
+  };
 
   return (
     <Center style={commonStyles.container}>
@@ -25,7 +30,7 @@ const LoginScreen = () => {
         MinsaPoint
       </Heading>
       <Text style={{ ...commonStyles.subtitleText, marginBottom: 32 }}>
-        LOGIN, {String(currentUser)}, {String(userLoggedIn)}, {accessToken}
+        LOGIN
       </Text>
 
       {/* <Box style={commonStyles.shadowBox}> */}
@@ -50,7 +55,7 @@ const LoginScreen = () => {
 
           <Button
             style={[commonStyles.button, { marginTop: 16 }]}
-            onPress={() => console.log('Sign In pressed')}
+            onPress={onLoginButtonPressed}
           >
             <Text style={commonStyles.buttonText}>Sign In with Google</Text>
           </Button>
