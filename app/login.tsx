@@ -8,22 +8,29 @@ import {
   Heading,
   Center,
 } from '@gluestack-ui/themed';
-import { VStack } from '../components/vstack'; 
+// import { VStack } from '../components/vstack'; 
+
 import { commonStyles } from '../constants/ThemeStyles';
 
+import { useAuth } from "@/contexts/authContext";
+
 const LoginScreen = () => {
+
+  const { currentUser, userLoggedIn, accessToken } = useAuth();
+  console.log(currentUser, userLoggedIn, accessToken);
+
   return (
     <Center style={commonStyles.container}>
       <Heading style={{ ...commonStyles.titleText, marginBottom: 4, marginTop: 140 }}>
         MinsaPoint
       </Heading>
       <Text style={{ ...commonStyles.subtitleText, marginBottom: 32 }}>
-        LOGIN
+        LOGIN, {String(currentUser)}, {String(userLoggedIn)}, {accessToken}
       </Text>
 
-      <Box style={commonStyles.shadowBox}>
-        <VStack space="md">
-          <Box>
+      {/* <Box style={commonStyles.shadowBox}> */}
+        {/* <VStack space="md"> */}
+          {/* <Box>
             <Text style={[commonStyles.labelText, { marginBottom: 40 }]}>
               ID
             </Text>
@@ -39,16 +46,16 @@ const LoginScreen = () => {
             <Input style={commonStyles.input}>
               <InputField placeholder="Enter Password" secureTextEntry />
             </Input>
-          </Box>
+          </Box> */}
 
           <Button
             style={[commonStyles.button, { marginTop: 16 }]}
             onPress={() => console.log('Sign In pressed')}
           >
-            <Text style={commonStyles.buttonText}>Sign In</Text>
+            <Text style={commonStyles.buttonText}>Sign In with Google</Text>
           </Button>
-        </VStack>
-      </Box>
+        {/* </VStack> */}
+      {/* </Box> */}
     </Center>
   );
 };
