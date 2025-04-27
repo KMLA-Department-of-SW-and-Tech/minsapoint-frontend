@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "@firebase/auth";
 // import axiosPrivate from "../hooks/axiosPrivate";
 import { auth } from "./firebase";
 
