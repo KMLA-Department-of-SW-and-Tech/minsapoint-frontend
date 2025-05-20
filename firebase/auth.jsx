@@ -52,7 +52,7 @@ export function UserLoginButton({ style, children }) {
       if (idToken) {
         const firebaseResult = await signInWithCredential(auth, GoogleAuthProvider().credential(idToken));
         console.log('Firebase sign-in result: ', firebaseResult);
-        // Continue with your app flow
+        // Continue   your app flow
 
         // check whether user exists and create account if not
         // if (result) await syncFirebaseWithMongoose(result);
