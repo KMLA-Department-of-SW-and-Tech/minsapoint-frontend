@@ -39,3 +39,6 @@ app-example
 
 #windows executable
 *.bat
+
+#google client secret
+google_client_secret.json
