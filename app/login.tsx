@@ -13,16 +13,13 @@ import {
 import { commonStyles } from '../constants/ThemeStyles';
 
 import { useAuth } from "@/contexts/authContext";
-import { signUserInWithGoogle } from "@/firebase/auth"
+
+import { signUserOut, UserLoginButton } from "@/firebase/auth";
 
 const LoginScreen = () => {
 
   const { currentUser, userLoggedIn, accessToken } = useAuth();
   console.log(currentUser, userLoggedIn, accessToken);
-
-  const onLoginButtonPressed = async () => {
-    await signUserInWithGoogle();
-  };
 
   return (
     <Center style={commonStyles.container}>
@@ -53,11 +50,13 @@ const LoginScreen = () => {
             </Input>
           </Box> */}
 
-          <Button
+          <UserLoginButton
             style={[commonStyles.button, { marginTop: 16 }]}
-            onPress={onLoginButtonPressed}
           >
             <Text style={commonStyles.buttonText}>Sign In with Google</Text>
+          </UserLoginButton>
+          <Button onPress={() => { signUserOut(accessToken); }} style={[commonStyles.button, { marginTop: 16 }]}>
+            <Text style={commonStyles.buttonText}>Debug button: logout</Text>
           </Button>
         {/* </VStack> */}
       {/* </Box> */}

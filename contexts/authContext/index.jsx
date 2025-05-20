@@ -24,6 +24,7 @@ export function AuthProvider({ children }) {
     } else {
       setCurrentUser(null);
       setUserLoggedIn(false);
+      setAccessToken("");
     }
     try {
       // const userInfo = await userService.getUserInfo(userCred.accessToken);
