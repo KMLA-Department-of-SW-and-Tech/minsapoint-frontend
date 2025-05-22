@@ -14,7 +14,7 @@ import { commonStyles } from '../constants/ThemeStyles';
 
 import { useAuth } from "@/contexts/authContext";
 
-import { signUserOut, UserLoginButton } from "@/firebase/auth";
+import { signUserOut, UserLoginButton } from "@/firebase-dir/auth";
 
 const LoginScreen = () => {
 

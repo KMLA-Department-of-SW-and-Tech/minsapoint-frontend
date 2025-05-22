@@ -1,6 +1,6 @@
 import * as Google from 'expo-auth-session/providers/google';
 import * as AuthSession from 'expo-auth-session';
-import { GoogleAuthProvider, signInWithCredential } from "@firebase/auth";
+import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 // import axiosPrivate from "../hooks/axiosPrivate";
 import { auth } from "./firebase";
 import { useEffect } from 'react';
