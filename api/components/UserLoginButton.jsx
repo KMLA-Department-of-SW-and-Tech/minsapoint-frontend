@@ -2,13 +2,13 @@ import * as Google from 'expo-auth-session/providers/google';
 import * as AuthSession from 'expo-auth-session';
 import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 // import axiosPrivate from "../hooks/axiosPrivate";
-import { auth } from "./firebase";
+import { auth } from "@/api/config/firebase";
 import { useEffect } from 'react';
 import { Button } from '@gluestack-ui/themed';
 import { Platform } from 'react-native';
 
 // only for dev, the client_secret should be placed in environment variables
-import { expo, web } from "@/dev/google-client/google_client_secret.json";
+import { expo, web } from "@/api/dev/google-client/google_client_secret.json";
 
 const syncFirebaseWithMongoose = async (credential) => {
   try {
@@ -24,7 +24,7 @@ const syncFirebaseWithMongoose = async (credential) => {
   }
 };
 
-export function UserLoginButton({ style, children }) {
+export default function UserLoginButton({ style, children }) {
   // logic problem needs bugfix
 
   const [request, response, promptAsync] = Google.useAuthRequest({
@@ -120,7 +120,7 @@ export function UserLoginButton({ style, children }) {
   );
 };
 
-export const signUserOut = async (accessToken) => {
+const signUserOut = async (accessToken) => {
   try {
     if (accessToken) {
       await auth.signOut();

@@ -12,9 +12,11 @@ import {
 
 import { commonStyles } from '../constants/ThemeStyles';
 
-import { useAuth } from "@/contexts/authContext";
+import { useAuth } from "@/api/contexts/authContext";
 
-import { signUserOut, UserLoginButton } from "@/firebase-dir/auth";
+import UserLoginButton from '@/api/components/UserLoginButton';
+
+
 
 const LoginScreen = () => {
 
@@ -55,7 +57,7 @@ const LoginScreen = () => {
           >
             <Text style={commonStyles.buttonText}>Sign In with Google</Text>
           </UserLoginButton>
-          <Button onPress={() => { signUserOut(accessToken); }} style={[commonStyles.button, { marginTop: 16 }]}>
+          <Button onPress={() => { /* signUserOut(accessToken); */ }} style={[commonStyles.button, { marginTop: 16 }]}>
             <Text style={commonStyles.buttonText}>Debug button: logout</Text>
           </Button>
         {/* </VStack> */}
