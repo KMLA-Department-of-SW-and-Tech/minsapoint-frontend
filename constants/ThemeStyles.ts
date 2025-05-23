@@ -17,7 +17,13 @@ export const commonStyles = {
     marginBottom: 16,
     backgroundColor: '#fff', // 흰 배경
   },
-  
+togglebutton: {
+  flexDirection: 'row',
+  justifyContent: 'flex-end',  // 오른쪽 정렬
+  alignItems: 'center',        // 세로 가운데 정렬
+  marginTop: 20,
+},
+
 
   topBar: {
     flexDirection: 'row',
