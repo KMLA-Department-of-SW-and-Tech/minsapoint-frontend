@@ -6,52 +6,52 @@ import { auth } from "@/api/config/firebase";
 const AuthContext = createContext();
 
 export function useAuth() {
-  return useContext(AuthContext);
+    return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
-  const [accessToken, setAccessToken] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [userType, setUserType] = useState("Unauthorized");
+    const [currentUser, setCurrentUser] = useState(null);
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [accessToken, setAccessToken] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [userType, setUserType] = useState("Unauthorized");
 
-  async function initializeUser(userCred) {
-    if (userCred) {
-      setAccessToken(userCred.accessToken); // accesstoken for jwt
-      setCurrentUser({ ...userCred });
-      setUserLoggedIn(true);
-    } else {
-      setCurrentUser(null);
-      setUserLoggedIn(false);
-      setAccessToken("");
+    async function initializeUser(userCred) {
+        if (userCred) {
+            setAccessToken(userCred.accessToken); // accesstoken for jwt
+            setCurrentUser({ ...userCred });
+            setUserLoggedIn(true);
+        } else {
+            setCurrentUser(null);
+            setUserLoggedIn(false);
+            setAccessToken("");
+        }
+        try {
+            // const userInfo = await userService.getUserInfo(userCred.accessToken);
+            // setUserType(userInfo.userType);
+        } catch (err) {
+            console.error("AuthProvider error: ", err);
+        }
+        setLoading(false);
     }
-    try {
-      // const userInfo = await userService.getUserInfo(userCred.accessToken);
-      // setUserType(userInfo.userType);
-    } catch (err) {
-      console.error("AuthProvider error: ", err);
-    }
-    setLoading(false);
-  }
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, initializeUser);
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, initializeUser);
 
-    return unsubscribe;
-  }, []);
+        return unsubscribe;
+    }, []);
 
-  const authValue = {
-    currentUser,
-    userLoggedIn,
-    accessToken,
-    // userType,
-  };
+    const authValue = {
+        currentUser,
+        userLoggedIn,
+        accessToken,
+        // userType,
+    };
 
-  return (
-    // can add some loading features in the future
-    <AuthContext.Provider value={authValue}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+    return (
+        // can add some loading features in the future
+        <AuthContext.Provider value={authValue}>
+            {!loading && children}
+        </AuthContext.Provider>
+    );
 }
