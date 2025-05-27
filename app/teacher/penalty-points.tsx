@@ -1,24 +1,45 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, Button, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import { commonStyles } from '../../constants/ThemeStyles';
+import { useRouter } from 'expo-router';
+import * as DocumentPicker from 'expo-document-picker';
 
 export default function PenaltyScreen() {
   const [selectedCategory, setSelectedCategory] = React.useState('');
   const [selectedPenalty, setSelectedPenalty] = React.useState('');
-  const [selectedStudent, setSelectedStudent] = React.useState('');
+  const [students, setStudents] = React.useState(['']); // 처음엔 한 명
+
+  const router = useRouter();
+
+  const handleAddStudent = () => {
+    setStudents([...students, '']);
+  };
+
+  const handleStudentChange = (value: string, index: number) => {
+  const newStudents = [...students];
+  newStudents[index] = value;
+  setStudents(newStudents);
+};
+
+
+  const handleUpload = async () => {
+    const result = await DocumentPicker.getDocumentAsync({});
+    if (result.assets && result.assets.length > 0) {
+      console.log('Uploaded:', result.assets[0].uri);
+    }
+  };
 
   return (
-    
     <ScrollView style={{ flex: 1 }}>
       {/* Header */}
       <View style={commonStyles.header}>
         <View style={commonStyles.headerLeft}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('/teacher')}>
             <Ionicons name="arrow-back" size={24} color="black" />
           </TouchableOpacity>
-          <TouchableOpacity style={{ marginLeft: 12 }}>
+          <TouchableOpacity style={{ marginLeft: 12 }} onPress={() => router.push('/teacher')}>
             <Ionicons name="home" size={24} color="black" />
           </TouchableOpacity>
         </View>
@@ -65,23 +86,32 @@ export default function PenaltyScreen() {
           </Picker>
         </View>
 
-        {/* 기소 학생 목록 */}
-        <Text style={commonStyles.label}>기소 학생 목록</Text>
-        <View style={commonStyles.pickerWrapper}>
-          <Picker
-            selectedValue={selectedStudent}
-            onValueChange={(itemValue) => setSelectedStudent(itemValue)}
-          >
-            <Picker.Item label="선택하기" value="" />
-            <Picker.Item label="홍길동" value="hong" />
-            <Picker.Item label="김철수" value="kim" />
-          </Picker>
-        </View>
+        {/* 기소 학생 목록 - 여러 개 */}
+        {students.map((student, index) => (
+          <View key={index}>
+            <Text style={commonStyles.label}>기소 학생 목록 {index + 1}</Text>
+            <View style={commonStyles.pickerWrapper}>
+              <Picker
+                selectedValue={student}
+                onValueChange={(itemValue) => handleStudentChange(itemValue, index)}
+              >
+                <Picker.Item label="선택하기" value="" />
+                <Picker.Item label="홍길동" value="hong" />
+                <Picker.Item label="김철수" value="kim" />
+              </Picker>
+            </View>
+          </View>
+        ))}
 
-        {/* Add button */}
-        <TouchableOpacity style={commonStyles.button}>
-          <Ionicons name="person-add" size={24} color="black" />
-        </TouchableOpacity>
+        {/* Add student & Upload file buttons */}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: 10 }}>
+          <TouchableOpacity style={[commonStyles.button, { flex: 1, marginRight: 5 }]} onPress={handleAddStudent}>
+            <Ionicons name="person-add" size={24} color="black" />
+          </TouchableOpacity>
+          <TouchableOpacity style={[commonStyles.button, { flex: 1, marginLeft: 5 }]} onPress={handleUpload}>
+            <Ionicons name="document-attach" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
 
         {/* Submit button */}
         <TouchableOpacity style={commonStyles.button}>

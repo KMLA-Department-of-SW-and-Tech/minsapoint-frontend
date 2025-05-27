@@ -23,8 +23,6 @@ togglebutton: {
   alignItems: 'center',        // 세로 가운데 정렬
   marginTop: 20,
 },
-
-
   topBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -306,10 +304,13 @@ togglebutton: {
     fontWeight: 'bold',
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  height: 60,
+  backgroundColor: '#ffffff', 
+  paddingHorizontal: 15,
+},
   headerLeft: {
     flexDirection: 'row',
     alignItems: 'center',

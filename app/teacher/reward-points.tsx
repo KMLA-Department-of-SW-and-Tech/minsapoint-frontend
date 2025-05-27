@@ -3,48 +3,37 @@ import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import { commonStyles } from '../../constants/ThemeStyles';
+import { useRouter } from 'expo-router';
 
 export default function PenaltyScreen() {
   const [selectedCategory, setSelectedCategory] = React.useState('');
   const [selectedPenalty, setSelectedPenalty] = React.useState('');
   const [selectedStudent, setSelectedStudent] = React.useState('');
+  const router = useRouter();
 
   return (
-    <View style={{ flex: 1 }}> {/* 화면 전체를 차지하는 View */}
-      
-      {/* 헤더 (고정) */}
-      <View style={commonStyles.header}>
-        <View style={commonStyles.headerLeft}>
-          <TouchableOpacity>
-            <Ionicons name="arrow-back" size={24} color="black" />
-          </TouchableOpacity>
-          <TouchableOpacity style={{ marginLeft: 12 }}>
-            <Ionicons name="home" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
+    <View style={{ flex: 1 }}> 
 
-        <View style={commonStyles.headerRight}>
-          <Image
-            source={{ uri: 'https://via.placeholder.com/40' }}
-            style={commonStyles.profileImage}
-          />
-          <View style={{ marginLeft: 8 }}>
-            <Text style={commonStyles.profileName}>왕두균</Text>
-          </View>
-        </View>
-      </View>
+<TouchableOpacity 
+  style={commonStyles.header}
+   
+>
+  <View style={commonStyles.headerLeft}>
+    <TouchableOpacity
+    onPress={() => router.push('/teacher')}>
+      <Ionicons name="arrow-back" size={24} color="black" />
+    </TouchableOpacity>
+    <TouchableOpacity style={{ marginLeft: 12 }}onPress={() => router.push('/teacher')}>
+      <Ionicons name="home" size={24} color="black" />
+    </TouchableOpacity>
+  </View>
+</TouchableOpacity>
 
-      {/* 아래 부분은 스크롤 가능 */}
+
       <ScrollView contentContainerStyle={{ padding: 16 }}>
-        {/* Title */}
-        <Text style={commonStyles.titleText}>상점</Text>
-
-        {/* Form Box */}
         <View style={commonStyles.formBox}>
-          {/* 입력 필드랑 Picker들 */}
           <Text style={commonStyles.label}>활동 내역</Text>
           <View style={commonStyles.inputWrapper}>
-            {/* 여기에 TextInput 넣으면 돼 */}
           </View>
 
           <Text style={commonStyles.label}>분류</Text>
