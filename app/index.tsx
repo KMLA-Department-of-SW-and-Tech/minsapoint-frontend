@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
 import { Link } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
     return (
@@ -12,9 +12,6 @@ export default function Index() {
             </Link>
             <Link href="/dept-of-j" style={styles.link} asChild>
                 <Text style={styles.linkText}>Go to dept of j</Text>
-            </Link>
-            <Link href="/login" style={styles.link} asChild>
-                <Text style={styles.linkText}>Go to login</Text>
             </Link>
         </View>
     );
