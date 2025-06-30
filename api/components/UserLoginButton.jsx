@@ -107,8 +107,6 @@
 // //     }
 // // };
 
-
-
 //     // // PROBLEM
 //     // // Function to handle sign-in and token exchange
 //     // const signInWithPopupInWebAndSyncDB = () => {

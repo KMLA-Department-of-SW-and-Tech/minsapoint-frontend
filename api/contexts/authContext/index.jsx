@@ -15,7 +15,7 @@
 //     const [accessToken, setAccessToken] = useState("");
 //     const [loading, setLoading] = useState(true);
 //     const [userType, setUserType] = useState("Unauthorized");
-    
+
 //     async function initializeUser(userCred) {
 //         if (userCred) {
 //             setAccessToken(userCred.accessToken); // accesstoken for jwt
