@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import { commonStyles } from "../../constants/ThemeStyles";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { commonStyles } from "../../constants/ThemeStyles";
 
 export default function CounterScreen() {
     const router = useRouter();
@@ -12,26 +12,20 @@ export default function CounterScreen() {
             <View style={commonStyles.topBar}>
                 <Text style={commonStyles.appTitle}>MinsaPoint</Text>
                 <View style={commonStyles.rightProfileSection}>
-                    <View style={commonStyles.profileRow}>
-                        <View style={{ marginLeft: 8 }}>
-                            <Text
-                                style={commonStyles.profileName}
-                                onPress={() => router.push("/student/settings")}
-                            >
-                                조유찬 선생님
-                            </Text>
-                        </View>
-                    </View>
+                   
+                        
+                    
                     <TouchableOpacity
                         style={commonStyles.settingsIcon}
                         onPress={() => router.push("/student/settings")}
                     >
                         <Ionicons
                             name="settings-outline"
-                            size={20}
+                            size={30}
                             color="#333"
                         />
                     </TouchableOpacity>
+                   
                 </View>
             </View>
 
@@ -64,11 +58,14 @@ export default function CounterScreen() {
                     </View>
                 </View>
                 <TouchableOpacity
-                    style={commonStyles.button}
+                    style={commonStyles.homeButton}
                     onPress={() => router.push("/student/history")}
                 >
                     <Text style={commonStyles.buttonText}>History</Text>
                 </TouchableOpacity>
+            </View>
+            <View style={commonStyles.button}>
+                <Text>이번주 법정 대상자입니다</Text>
             </View>
         </View>
     );

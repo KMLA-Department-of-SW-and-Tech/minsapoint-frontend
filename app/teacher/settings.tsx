@@ -15,11 +15,8 @@ export default function SettingsScreen() {
                 <Text style={commonStyles.infoTitle}>이름</Text>
                 <Text style={commonStyles.infoText}>왕두균 선생님</Text>
 
-                <Text style={commonStyles.infoTitle}>이메일</Text>
-                <Text style={commonStyles.infoText}>wang@example.com</Text>
-
-                <Text style={commonStyles.infoTitle}>전화번호</Text>
-                <Text style={commonStyles.infoText}>010-1234-5678</Text>
+                <Text style={commonStyles.infoTitle}>학번</Text>
+                <Text style={commonStyles.infoText}>231106</Text>
             </View>
 
             {/* 로그아웃 버튼 */}

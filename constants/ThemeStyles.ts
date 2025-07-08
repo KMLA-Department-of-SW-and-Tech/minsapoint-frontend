@@ -28,10 +28,12 @@ export const commonStyles = {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        marginTop: 10,
     },
     appTitle: {
         fontSize: 22,
         fontWeight: "bold",
+       
     },
     rightProfileSection: {
         flexDirection: "row",
@@ -144,10 +146,12 @@ togglebutton: {
     } as ViewStyle,
 
     button: {
-        backgroundColor: Colors.light.button,
+        backgroundColor: '#EEEEEE',
         borderRadius: 8,
-        paddingVertical: 12,
+        paddingVertical: 20,
         marginTop: 30,
+       
+        
         alignItems: "center" as const,
     } as ViewStyle,
 
@@ -184,6 +188,7 @@ togglebutton: {
 
     settingsIcon: {
         marginLeft: 8,
+        marginTop: 20,
         backgroundColor: Colors.light.card,
         padding: 6,
         borderRadius: 20,
@@ -277,31 +282,23 @@ togglebutton: {
         backgroundColor: "#fff",
         borderRadius: 16,
         padding: 20,
-        width: "80%",
+        width: "85%",
         elevation: 4,
         shadowColor: "#000",
         shadowOpacity: 0.2,
         shadowOffset: { width: 0, height: 2 },
     },
-    modalHeader: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: 12,
-    },
+
     modalTitle: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: "bold",
+        marginBottom: 20,
     },
     modalContent: {
         fontSize: 16,
-        marginBottom: 20,
+        marginBottom: 15,
     },
-    modalButtons: {
-        flexDirection: "row",
-        justifyContent: "flex-end",
-        gap: 10,
-    },
+
     cancelButton: {
         backgroundColor: "#333",
         paddingVertical: 8,
@@ -330,6 +327,7 @@ togglebutton: {
         marginTop: 4,
     },
     infoBox: {
+        marginTop: 60,
         backgroundColor: "#f2f2f2",
         padding: 20,
         borderRadius: 12,
@@ -349,6 +347,13 @@ togglebutton: {
         backgroundColor: "#FF3B30",
         paddingVertical: 14,
         borderRadius: 10,
+        marginTop: 30,
+    },
+    homeButton: {
+        backgroundColor: "#000000",
+        paddingVertical: 14,
+        borderRadius: 10,
+        marginTop: 30,
     },
     logoutButtonText: {
         color: "#fff",

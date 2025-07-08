@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-import { commonStyles } from "../../constants/ThemeStyles";
 import { Ionicons } from "@expo/vector-icons";
-
+import { useRouter } from "expo-router";
+import React from "react";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { commonStyles } from "../../constants/ThemeStyles";
 const warnings = [
     {
         id: 1,
@@ -25,33 +25,18 @@ const warnings = [
 ];
 
 export default function CounterScreen() {
+    const router = useRouter();
     return (
         <View style={commonStyles.container}>
-            {/* 상단 바 */}
-            <View style={commonStyles.topBar}>
+            <TouchableOpacity style={commonStyles.topBar} onPress={() => router.push("../student")}>
                 <Text style={commonStyles.appTitle}>MinsaPoint</Text>
-            </View>
-
-            <TouchableOpacity
-                style={{ ...commonStyles.notification, marginVertical: 12 }}
-            >
-                <Ionicons
-                    name="notifications-outline"
-                    size={28}
-                    color="black"
-                />
-                <View style={commonStyles.notificationBadge}>
-                    <Text style={commonStyles.notificationText}>
-                        {warnings.length}
-                    </Text>
-                </View>
             </TouchableOpacity>
-
-            <View
+<View>
+          <View
                 style={{
                     flexDirection: "row",
                     justifyContent: "flex-end",
-                    marginVertical: 12,
+                    marginVertical: 8,
                 }}
             >
                 <TouchableOpacity
@@ -67,8 +52,8 @@ export default function CounterScreen() {
                     </Text>
                 </TouchableOpacity>
             </View>
+            </View>
 
-            {/* 경고 카드 리스트 */}
             <ScrollView style={{ flex: 1, marginTop: 25 }}>
                 {warnings.map((item) => (
                     <View
@@ -106,7 +91,7 @@ export default function CounterScreen() {
                                     }}
                                 >
                                     새로운 기소사항
-                                </Text>
+                                </Text>{/**이거는 메시지 종류에 따라 달라짐. 수정할 것. */}
                             </View>
                             <TouchableOpacity>
                                 <Ionicons
@@ -120,17 +105,6 @@ export default function CounterScreen() {
                             {item.teacher} 선생님 - {item.reason} ({item.score}
                             점)
                         </Text>
-                        <TouchableOpacity
-                            style={{
-                                backgroundColor: "#333",
-                                paddingVertical: 8,
-                                paddingHorizontal: 16,
-                                borderRadius: 6,
-                                alignSelf: "flex-start",
-                            }}
-                        >
-                            <Text style={{ color: "#fff" }}>확인 완료</Text>
-                        </TouchableOpacity>
                     </View>
                 ))}
             </ScrollView>

@@ -1,6 +1,7 @@
 import { commonStyles } from "@/constants/ThemeStyles";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, Modal } from "react-native";
+import { FlatList, Modal, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 
 const sampleData = [
     {
@@ -8,13 +9,6 @@ const sampleData = [
         title: "Abasent from morning exercise",
         content: "정창윤 외 10명",
     },
-    { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
-    { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
-    { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
-    { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
-    { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
-    { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
-    { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
     { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
     { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
     { id: "2", title: "Outdoor Regulation", content: "28조유찬, 28정창윤" },
@@ -27,6 +21,7 @@ const sampleData = [
 ];
 
 export default function CounterScreen() {
+    const router = useRouter();
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
@@ -42,6 +37,9 @@ export default function CounterScreen() {
 
     return (
         <View style={commonStyles.container}>
+            <TouchableOpacity style={commonStyles.topBar} onPress={() => router.push("../student")}>
+                            <Text style={commonStyles.appTitle}>MinsaPoint</Text>
+                        </TouchableOpacity>
             <FlatList
                 style={{ marginTop: 20 }}
                 data={sampleData}
@@ -58,28 +56,27 @@ export default function CounterScreen() {
             />
 
             {/* Modal */}
-            <Modal
-                visible={modalVisible}
-                transparent
-                animationType="fade"
-                onRequestClose={closeModal}
-            >
-                <View style={commonStyles.modalBackdrop}>
-                    <View style={commonStyles.modalBox}>
-                        <View style={commonStyles.modalHeader}>
-                            <Text style={commonStyles.modalTitle}>
-                                {selectedItem?.title || "상세정보"}
-                            </Text>
-                            <TouchableOpacity onPress={closeModal}>
-                                <Text style={{ fontSize: 18 }}>✕</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <Text style={commonStyles.modalContent}>
-                            {selectedItem?.content || ""}
-                        </Text>
-                    </View>
-                </View>
-            </Modal>
+<Modal
+  visible={modalVisible}
+  transparent
+  animationType="fade"
+  onRequestClose={closeModal}
+>
+  <TouchableWithoutFeedback onPress={closeModal}>
+    <View style={commonStyles.modalBackdrop}>
+      <TouchableWithoutFeedback>
+        <View style={commonStyles.modalBox}>
+          <Text style={commonStyles.modalTitle}>
+            {selectedItem?.title}
+          </Text>
+          <Text style={commonStyles.modalContent}>
+            {selectedItem?.content || ''}
+          </Text>
+        </View>
+      </TouchableWithoutFeedback>
+    </View>
+  </TouchableWithoutFeedback>
+</Modal>
         </View>
     );
 }
