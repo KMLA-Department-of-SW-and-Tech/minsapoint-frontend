@@ -1,0 +1,9 @@
+[submodule "minsapoint-student"]
+	path = minsapoint-student
+	url = https://github.com/YooChanJo/minsapoint-student.git
+[submodule "minsapoint-teacher"]
+	path = minsapoint-teacher
+	url = https://github.com/YooChanJo/minsapoint-teacher.git
+[submodule "minsapoint-dept-j"]
+	path = minsapoint-dept-j
+	url = https://github.com/YooChanJo/minsapoint-dept-j.git
